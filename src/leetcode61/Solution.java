@@ -1,8 +1,5 @@
 package leetcode61;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Solution {
     public class ListNode {
         int val;
@@ -31,16 +28,14 @@ public class Solution {
             return head;
         }
 
-        // 找到返回的根节点
+        // 找到返回的根节点的前一个节点
         cur = head;
         for (int i = 1; i < l - k; i++) {
             cur = cur.next;
         }
         ListNode root = cur.next;
 
-        // 断开
         cur.next = null;
-        // 续上
         end.next = head;
 
         return root;
