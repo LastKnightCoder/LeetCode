@@ -1,6 +1,4 @@
-package leetcode82;
-
-import java.util.List;
+package leetcode83;
 
 class ListNode {
     public int val;
@@ -15,14 +13,9 @@ class ListNode {
     }
 }
 
-public class Solution2 {
+public class Solution {
     public ListNode deleteDuplicates(ListNode head) {
         if (head == null || head.next == null) {
-            return head;
-        }
-
-        if (head.val != head.next.val) {
-            head.next = deleteDuplicates(head.next);
             return head;
         }
 
@@ -30,6 +23,7 @@ public class Solution2 {
             head = head.next;
         }
 
-        return deleteDuplicates(head.next);
+        head.next = deleteDuplicates(head.next);
+        return head;
     }
 }
